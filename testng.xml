@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="Test01_GeneralStore">
+        <classes>
+            <class name="appiumproject.testcases.Test01_GeneralStore">
+        <methods><include name="GenralStoreTest01"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Test02_MultipleTests">
+        <classes>
+            <class name="appiumproject.testcases.Test02_MultipleTests"><methods><include name="VerifyNameValidation_Test01"/><include name="FormSubmit_Test02"/></methods>
+            </class>
+        </classes>
+    </test>
+</suite>
