@@ -3,6 +3,7 @@ package appiumproject.basePackage;
 import java.io.File;
 import java.time.Duration;
 
+import appiumproject.utils.AppiumCommonUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebElement;
@@ -36,7 +37,9 @@ public class SuperBaseClass {
 	public static AppiumServiceBuilder builder ;
 	public static DeviceInfo deviceInfo ;
 	public static Device device ;
-	//public static IOSDriver mobiledriver;
+
+    //create page object globally
+	public AppiumCommonUtils acommonUtils = new AppiumCommonUtils(driver);
 	
 	@BeforeClass
 	public void Setup() throws Exception {

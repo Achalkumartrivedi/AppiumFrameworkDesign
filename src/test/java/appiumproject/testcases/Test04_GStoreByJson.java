@@ -27,73 +27,59 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 	@BeforeMethod
 	public void GoToHome() {
 
-		Activity activity = new Activity("com.androidsample.generalstore","com.androidsample.generalstore.SplashActivity");
+		Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore.SplashActivity");
 		driver.startActivity(activity);
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
-	
+
 	@Test(dataProvider = "getData")
-	public void GstoreByJsonTest04(HashMap<String ,String> input) {
-		
+	public void GstoreByJsonTest04(HashMap<String, String> input) {
+
 		System.out.println("******************* Part 4:Data Driven Test by Json file: General Store App  ****************");
 		System.out.println("******************* GstoreByJsonTest04() is start  ****************");
-		   
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-		
+
+
 		try {
-			
+
 			FormPage frmPage = new FormPage(driver); //create object of formpage 
 			frmPage.countrySelection(input.get("country"));  //country pass from argument
 			frmPage.setNameField(input.get("name")); //name pass from argument
 			frmPage.setGender(input.get("gender")); //gender pass from argument
-			
+
 			ProductCatalogue prdCatalogue = frmPage.letsShopButtonclick(); //Implement Page object file for Product Catalogue page with actions
 
 			System.out.println("******************* GstoreByJsonTest04() is finished ****************");
-			
-			
-		}catch (AssertionError a) {
+
+
+		} catch (AssertionError a) {
 			// TODO: handle exception
-			System.out.println("Assertion error message ...."+a.getMessage());
+			System.out.println("Assertion error message ...." + a.getMessage());
 			a.printStackTrace();
 			System.out.println("******************* GstoreByJsonTest04() is not run ****************");
-		} 
-		catch (NotFoundException e) {
+		} catch (NotFoundException e) {
 			// TODO: handle exception
-			System.out.println("Not found error message ...."+e.getMessage());
+			System.out.println("Not found error message ...." + e.getMessage());
 			e.printStackTrace();
 			System.out.println("******************* GstoreByJsonTest04() is not run ****************");
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			// TODO: handle exception
-			System.out.println("Error message ...."+ex.getMessage());
+			System.out.println("Error message ...." + ex.getMessage());
 			ex.printStackTrace();
 			System.out.println("******************* GstoreByJsonTest04() is not run ****************");
 		}
-     
+
 	}
 
 	//Data provide to converter
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir") + "/src/test/java/appiumproject/testUtils/generalstore.json");
+		List<HashMap<String, String>> data = acommonUtils.getJsonData(System.getProperty("user.dir") + "/src/test/java/appiumproject/testUtils/generalstore.json");
 		return new Object[][]{{data.get(0)}, {data.get(1)}}; //hashmap index in json file
 
 		// { {Hash} {Hash} }  data
 	}
+}
 
-   //converter = data convert json file into hashmap one by one
-	public List<HashMap<String ,String>> getJsonData(String jsonFilePath) throws IOException {
-		System.out.println("******************* getJsonData is start ****************");
-
-		String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+ "/src/test/java/appiumproject/testUtils/generalstore.json"), StandardCharsets.UTF_8);
-		ObjectMapper mapper = new ObjectMapper();
-		List<HashMap<String ,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String ,String>>>(){});
-
-		System.out.println("******************* getJson return data ****************");
-		return data;
-
-	}
-
-}///path of jsonfile - /src/test/java/appiumproject/utils/generalstore.json
+ ///path of jsonfile - /src/test/java/appiumproject/utils/generalstore.json
