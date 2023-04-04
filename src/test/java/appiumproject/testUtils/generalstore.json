@@ -1,12 +1,12 @@
 [
   {
     "country" : "Bahamas",
-    "name " : "Achal",
+    "name" : "Achal",
     "gender": "female"
   },
   {
     "country" : "Australia",
-    "name " : "Trivedi",
+    "name" : "Trivedi",
     "gender": "male"
 
   }

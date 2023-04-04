@@ -1,13 +1,16 @@
 package appiumproject.testcases;
 
+import appiumproject.basePackage.BaseClass;
 import appiumproject.basePackage.SuperBaseClass;
 import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.appium.java_client.android.Activity;
+import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -74,7 +77,7 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 	//Data provide to converter
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir") + "src/main/java/appiumproject/utils/generalstore.json");
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir") + "/src/test/java/appiumproject/testUtils/generalstore.json");
 		return new Object[][]{{data.get(0)}, {data.get(1)}}; //hashmap index in json file
 
 		// { {Hash} {Hash} }  data
@@ -82,15 +85,15 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 
    //converter = data convert json file into hashmap one by one
 	public List<HashMap<String ,String>> getJsonData(String jsonFilePath) throws IOException {
+		System.out.println("******************* getJsonData is start ****************");
 
-		String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"src/main/java/appiumproject/utils/generalstore.json"), StandardCharsets.UTF_8);
-
+		String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+ "/src/test/java/appiumproject/testUtils/generalstore.json"), StandardCharsets.UTF_8);
 		ObjectMapper mapper = new ObjectMapper();
 		List<HashMap<String ,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String ,String>>>(){});
 
-
+		System.out.println("******************* getJson return data ****************");
 		return data;
 
 	}
 
-}
+}///path of jsonfile - /src/test/java/appiumproject/utils/generalstore.json
