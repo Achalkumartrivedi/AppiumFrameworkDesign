@@ -19,7 +19,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public abstract class AppiumCommonUtils {
 	
-	     AndroidDriver driver; //This grandparent class so AppiumDriver is also parent driver
+	    public AppiumDriver driver; //This grandparent class so AppiumDriver is also parent driver
 
 		public Double getStringToDouble(String stringtext) {
 
@@ -28,7 +28,7 @@ public abstract class AppiumCommonUtils {
 			 return convertedDouble;
 		}
 		
-		public void waitForElementByAttributeContains(WebElement element ,String attibute,String value) {
+		public void waitForElementByAttributeContains(WebElement element,String attibute,String value) {
 			
 			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 			 wait.until(ExpectedConditions.attributeContains(element,attibute,value));

@@ -14,4 +14,18 @@
             </class>
         </classes>
     </test>
+    <test verbose="2" preserve-order="true" name="Test03_GStoreByDataProvider">
+        <classes>
+            <class name="appiumproject.testcases.Test03_GStoreByDataProvider">
+                <methods><include name="GStoreDataProviderTest03"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Test04_GStoreByJson">
+        <classes>
+            <class name="appiumproject.testcases.Test04_GStoreByJson">
+                <methods><include name="GstoreByJsonTest04"/></methods>
+            </class>
+        </classes>
+    </test>
 </suite>

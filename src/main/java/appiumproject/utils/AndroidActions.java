@@ -10,8 +10,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
 public class AndroidActions extends AppiumCommonUtils{
-	AndroidDriver driver ;
-	
+
 	public AndroidActions(AndroidDriver driver) {
 			this.driver = driver;
 		

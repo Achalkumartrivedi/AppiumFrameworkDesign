@@ -42,11 +42,11 @@ public class Test01_GeneralStore extends SuperBaseClass {
 			// CartPage cartPage = new CartPage(driver); //create object seperatly of cart page page
 			
 			
-			// cartPage.cartPageTitleWait(); //Cart page Title Wait by action method getting error (Input method set)
+			cartPage.cartPageTitleWait(); //Cart page Title Wait by action method getting error (Input method set)
 
-			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.TextView[@text='Cart']"))));
-			System.out.println("******************* Wait for 'Cart' page load ****************");
+//			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+//			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.TextView[@text='Cart']"))));
+//			System.out.println("******************* Wait for 'Cart' page load ****************");
 
 
 			double ProductSum = cartPage.getProductSum(); //two product sum and store into double

@@ -2,8 +2,6 @@ package appiumproject.pageOjects;
 
 import java.util.List;
 
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,16 +17,16 @@ public class ProductCatalogue extends AndroidActions{
 		    
 		    super(driver);
 			this.driver = driver;
-			PageFactory.initElements(new AppiumFieldDecorator(driver) ,this);
+			PageFactory.initElements(driver,this);
 		
 	}
 	
 	//driver.findElements(AppiumBy.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
-	@AndroidFindBy(xpath = "//android.widget.TextView[@text='ADD TO CART']")
+	@FindBy(xpath = "//android.widget.TextView[@text='ADD TO CART']")
 	private List<WebElement> addtocart ;
 	
 	//driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
-	@AndroidFindBy(id = "com.androidsample.generalstore:id/appbar_btn_cart")
+	@FindBy(id = "com.androidsample.generalstore:id/appbar_btn_cart")
 	private WebElement carticon ;
 	
 	
