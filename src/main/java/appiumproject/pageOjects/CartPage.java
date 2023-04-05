@@ -2,6 +2,7 @@ package appiumproject.pageOjects;
 
 import java.util.List;
 
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -16,44 +17,44 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 
-public class CartPage extends AndroidActions{
+public class CartPage extends AndroidActions {
 
 	AndroidDriver driver ;
 	public CartPage(AndroidDriver driver) {
 		    
 		    super(driver);
 			this.driver = driver;
-			PageFactory.initElements(driver,this);
+			PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 		
 	}
 	//All Locators
 	
 	 //List<WebElement> productprice = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice"));
-	@FindBy(id = "com.androidsample.generalstore:id/productPrice")
+	@AndroidFindBy(id = "com.androidsample.generalstore:id/productPrice")
 	private List<WebElement> productprice ;
 	
 	//driver.findElement(AppiumBy.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();
-	@FindBy(id = "com.androidsample.generalstore:id/totalAmountLbl")
+	@AndroidFindBy(id = "com.androidsample.generalstore:id/totalAmountLbl")
 	private WebElement totalpurchaseamount;
 	
 	//driver.findElement(By.className("android.widget.CheckBox")).click();
-	@FindBy(className =  "android.widget.CheckBox")
+	@AndroidFindBy(className =  "android.widget.CheckBox")
 	private WebElement checkmarkedElement ;
 	
 	//driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Please read our terms of conditions']"));
-	@FindBy(id = "com.androidsample.generalstore:id/termsButton")
+	@AndroidFindBy(id = "com.androidsample.generalstore:id/termsButton")
 	private WebElement terms ;
 	
 	//driver.findElement(AppiumBy.xpath("//android.widget.Button[@text='CLOSE']"));
-	@FindBy(id = "android:id/button1")
+	@AndroidFindBy(id = "android:id/button1")
 	private WebElement close ;
 	
 	//driver.findElement(By.xpath("//android.widget.Button[@text='Visit to the website to complete purchase']")).click();
-	@FindBy(xpath = "//android.widget.Button[@text='Visit to the website to complete purchase']")
+	@AndroidFindBy(xpath = "//android.widget.Button[@text='Visit to the website to complete purchase']")
 	private WebElement submitPurchasButton  ;
 	
 	//WebElement cartTitlElement = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Cart']"));
-	@FindBy(xpath  = "//android.widget.TextView[@text='Cart']")
+	@AndroidFindBy(xpath  = "//android.widget.TextView[@text='Cart']")
 	public WebElement cartPageTitle ;
 	
 	
@@ -104,9 +105,9 @@ public class CartPage extends AndroidActions{
 		System.out.println("******************* click on 'visit the website to purchase' button ****************");
 	}
 	
-	public void cartPageTitleWait() {
-		
-		waitForElementByAttributeContains(cartPageTitle,"text","Cart");
+	public void cartPageTitleWait(String attribute,String value) {
+		//waitByVisibilityOf(cartPageTitle);
+		waitForElementByAttributeContains(cartPageTitle,attribute,value);
 		System.out.println("******************* Wait for 'Cart' page load ****************");
 		
 	}

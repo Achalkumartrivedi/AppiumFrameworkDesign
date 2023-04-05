@@ -29,7 +29,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
-public class SuperBaseClass {
+public class SuperBaseClass extends AppiumCommonUtils {
 	
 	public AndroidDriver driver ;
 	// public static AppiumDriver driver = null;
@@ -39,7 +39,6 @@ public class SuperBaseClass {
 	public static Device device ;
 
     //create page object globally
-	public AppiumCommonUtils acommonUtils = new AppiumCommonUtils(driver);
 	
 	@BeforeClass
 	public void Setup() throws Exception {

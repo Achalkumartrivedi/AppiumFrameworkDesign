@@ -75,7 +75,7 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 	//Data provide to converter
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		List<HashMap<String, String>> data = acommonUtils.getJsonData(System.getProperty("user.dir") + "/src/test/java/appiumproject/testUtils/generalstore.json");
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir") + "/src/test/java/appiumproject/testUtils/generalstore.json");
 		return new Object[][]{{data.get(0)}, {data.get(1)}}; //hashmap index in json file
 
 		// { {Hash} {Hash} }  data

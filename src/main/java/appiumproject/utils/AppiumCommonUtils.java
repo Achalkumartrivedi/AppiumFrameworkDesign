@@ -17,17 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
-public class AppiumCommonUtils {
+public abstract class AppiumCommonUtils {
 	
-	     AppiumDriver driver; //This grandparent class so AppiumDriver is also parent driver
-		
-		public AppiumCommonUtils(AndroidDriver driver) {
-			
-				this.driver = driver; 
-			
-		}
-		
-		
+	     AndroidDriver driver; //This grandparent class so AppiumDriver is also parent driver
+
 		public Double getStringToDouble(String stringtext) {
 
 			 Double convertedDouble = Double.parseDouble(stringtext.substring(1));
@@ -40,6 +33,13 @@ public class AppiumCommonUtils {
 			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 			 wait.until(ExpectedConditions.attributeContains(element,attibute,value));
 			System.out.println("******************* AppiumCommonUtils: Wait method is call *******************");
+		}
+
+		public void waitByVisibilityOf(WebElement element){
+			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+			wait.until(ExpectedConditions.visibilityOf(element));
+			System.out.println("******************* AppiumCommonUtils: Wait method is call *******************");
+
 		}
 
 	//converter = data convert json file into hashmap one by one
