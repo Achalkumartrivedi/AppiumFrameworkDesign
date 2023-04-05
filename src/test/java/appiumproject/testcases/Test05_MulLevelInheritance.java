@@ -68,7 +68,7 @@ public class Test05_MulLevelInheritance extends BaseClass {
 	@DataProvider
 	public Object[][] getData(){
 
-		return new Object[][] { {"Bahamas","Achal","female"},{"Australia","Trivedi","male"} };
+		return new Object[][] { {"Bahamas","Achal","Female"},{"Australia","Trivedi","Male"} };
 	}
 
 }
