@@ -32,13 +32,6 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 public class SuperBaseClass extends AppiumCommonUtils {
 	
 	public AndroidDriver driver ;
-	// public static AppiumDriver driver = null;
-//	public static AppiumDriverLocalService service = null;
-//	public static AppiumServiceBuilder builder ;
-//	public static DeviceInfo deviceInfo ;
-//	public static Device device ;
-
-    //create page object globally
 	
 	@BeforeClass
 	public void Setup() throws Exception {
