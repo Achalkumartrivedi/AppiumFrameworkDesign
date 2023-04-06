@@ -1,4 +1,4 @@
-package appiumproject.basePackage;
+package appiumproject.testUtils;
 
 import appiumproject.utils.AppiumUtils;
 import com.testinium.deviceinformation.DeviceInfo;
@@ -11,7 +11,6 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 

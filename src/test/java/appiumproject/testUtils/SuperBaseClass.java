@@ -1,33 +1,14 @@
-package appiumproject.basePackage;
+package appiumproject.testUtils;
 
-import java.io.File;
+import java.io.FileInputStream;
 import java.time.Duration;
+import java.util.Properties;
 
 import appiumproject.utils.AppiumCommonUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-import com.google.common.collect.ImmutableMap;
-import com.testinium.deviceinformation.DeviceInfo;
-import com.testinium.deviceinformation.DeviceInfoImpl;
-import com.testinium.deviceinformation.device.DeviceType;
-import com.testinium.deviceinformation.model.Device;
-
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 public class SuperBaseClass extends AppiumCommonUtils {
 	
@@ -38,8 +19,17 @@ public class SuperBaseClass extends AppiumCommonUtils {
 		
         System.out.println("*********** SuperBaseclass: BeforeTest is Start ******************");
 
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream(projectdir + dataPropertiesPath);
+		prop.load(fis);
+		String ipaddress = prop.getProperty("ipaddress");
+		String Basepath = prop.getProperty("basepath");
+		String port = prop.getProperty("port");
+		String debugloglevel = prop.getProperty("debugloglevel");
+
+
 		//call method from AppiumCommonUtils - start server by servicebuilder and return service
-		service = startAppiumServer("127.0.0.1","/wd/hub","4723","debug"); //call method in commonUtils
+		service = startAppiumServer(ipaddress,Basepath,port,debugloglevel); //call method in commonUtils
 
 		System.out.println("********************** My Project directory:-" +projectdir);
 

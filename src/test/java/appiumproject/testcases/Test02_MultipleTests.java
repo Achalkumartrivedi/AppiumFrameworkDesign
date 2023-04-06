@@ -1,20 +1,15 @@
 package appiumproject.testcases;
 
 import java.time.Duration;
-import org.openqa.selenium.NotFoundException;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import appiumproject.basePackage.SuperBaseClass;
-import appiumproject.pageOjects.CartPage;
+import appiumproject.testUtils.SuperBaseClass;
 import appiumproject.pageOjects.FormPage;
-import appiumproject.pageOjects.ProductCatalogue;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.Activity;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class Test02_MultipleTests extends SuperBaseClass {
 	

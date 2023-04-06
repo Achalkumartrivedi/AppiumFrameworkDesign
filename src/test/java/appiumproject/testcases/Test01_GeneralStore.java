@@ -2,14 +2,11 @@ package appiumproject.testcases;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import appiumproject.basePackage.SuperBaseClass;
+import appiumproject.testUtils.SuperBaseClass;
 import appiumproject.pageOjects.CartPage;
 import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;

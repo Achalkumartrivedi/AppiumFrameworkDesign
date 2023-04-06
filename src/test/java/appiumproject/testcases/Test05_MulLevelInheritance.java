@@ -1,12 +1,9 @@
 package appiumproject.testcases;
 
-import appiumproject.basePackage.BaseClass;
-import appiumproject.basePackage.SuperBaseClass;
+import appiumproject.testUtils.BaseClass;
 import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;
 import io.appium.java_client.android.Activity;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.NotFoundException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

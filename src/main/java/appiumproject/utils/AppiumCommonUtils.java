@@ -34,6 +34,9 @@ public abstract class AppiumCommonUtils {
 	public Device device ;
 
 	public String projectdir = System.getProperty("user.dir");
+	public String generalstorejsonPath = "/src/test/java/appiumproject/TestData/generalstore.json";
+
+	public String dataPropertiesPath = "/src/main/java/appiumproject/resources/data.properties";
 
 	//E-COMMERCE APP
 	public File app = new File( projectdir +"/src/test/resources/apps/General-Store.apk");
@@ -71,7 +74,7 @@ public abstract class AppiumCommonUtils {
 	public List<HashMap<String ,String>> getJsonData(String jsonFilePath) throws IOException {
 		System.out.println("******************* getJsonData is start ****************");
 
-		String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+ "/src/test/java/appiumproject/testUtils/generalstore.json"), StandardCharsets.UTF_8);
+		String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+ generalstorejsonPath), StandardCharsets.UTF_8);
 		ObjectMapper mapper = new ObjectMapper();
 		List<HashMap<String ,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String ,String>>>(){});
 

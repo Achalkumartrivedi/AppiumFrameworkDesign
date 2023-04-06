@@ -1,12 +1,10 @@
 package appiumproject.testcases;
 
-import appiumproject.basePackage.SuperBaseClass;
-import appiumproject.pageOjects.CartPage;
+import appiumproject.testUtils.SuperBaseClass;
 import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;
 import io.appium.java_client.android.Activity;
 import org.openqa.selenium.NotFoundException;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

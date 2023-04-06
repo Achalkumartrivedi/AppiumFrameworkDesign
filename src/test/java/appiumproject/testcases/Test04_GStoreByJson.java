@@ -1,23 +1,15 @@
 package appiumproject.testcases;
 
-import appiumproject.basePackage.BaseClass;
-import appiumproject.basePackage.SuperBaseClass;
+import appiumproject.testUtils.SuperBaseClass;
 import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.appium.java_client.android.Activity;
-import io.appium.java_client.android.AndroidDriver;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -75,7 +67,7 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 	//Data provide to converter
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir") + "/src/test/java/appiumproject/testUtils/generalstore.json");
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir") + generalstorejsonPath);
 		return new Object[][]{{data.get(0)}, {data.get(1)}}; //hashmap index in json file
 
 		// { {Hash} {Hash} }  data
