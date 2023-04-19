@@ -29,7 +29,7 @@ import io.appium.java_client.AppiumDriver;
 public abstract class AppiumCommonUtils {
 
 	public AppiumDriverLocalService service ;
-	public AppiumServiceBuilder builder = new AppiumServiceBuilder(); ;
+	public AppiumServiceBuilder builder = new AppiumServiceBuilder();
 	public DeviceInfo deviceInfo ;
 	public Device device ;
 

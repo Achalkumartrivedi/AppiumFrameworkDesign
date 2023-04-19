@@ -32,7 +32,7 @@ public class AndroidActions extends AppiumCommonUtils{
 	
 	public void longPressAction(WebElement element) throws InterruptedException {
 		
-		((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",ImmutableMap.of("elementId",((WebElement) element),"duration",2000));
+		((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",ImmutableMap.of("elementId", element,"duration",2000));
 		 System.out.println("******************* AndroidActions: longpress run ****************");
 		 Thread.sleep(3000);
 	}

@@ -32,8 +32,8 @@ public class ProductCatalogue extends AndroidActions{
 	
 	
 	public void clickOnAddToCartByIndex(int i) throws InterruptedException {
-		addtocart.get(i).click();;
-		System.out.println("******************* Clicked product ****************");
+		addtocart.get(i).click();
+        System.out.println("******************* Clicked product ****************");
 		
 	}
 	
