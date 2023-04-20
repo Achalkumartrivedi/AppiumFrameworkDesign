@@ -19,9 +19,7 @@ public class SuperBaseClass extends AppiumCommonUtils {
 		
         System.out.println("*********** SuperBaseclass: BeforeTest is Start ******************");
 
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream(projectdir + dataPropertiesPath);
-		prop.load(fis);
+		prop = propertiesLoad();
 		String ipaddress = prop.getProperty("ipaddress");
 		String Basepath = prop.getProperty("basepath");
 		String port = prop.getProperty("port");
@@ -33,6 +31,7 @@ public class SuperBaseClass extends AppiumCommonUtils {
 
 		System.out.println("********************** My Project directory:-" +projectdir);
 
+		setAPKName("General-Store"); //ApiDemos-debug ,General-Store
 		//call method from AppiumCommonUtils - Automatically get capabilities
 		getDeviceCapabilities();
      			

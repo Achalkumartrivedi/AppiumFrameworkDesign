@@ -1,11 +1,13 @@
 package appiumproject.utils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,19 +35,16 @@ public abstract class AppiumCommonUtils {
 	public DeviceInfo deviceInfo ;
 	public Device device ;
 
-	public String projectdir = System.getProperty("user.dir");
+	public static String projectdir = System.getProperty("user.dir");
 	public String generalstorejsonPath = "/src/test/java/appiumproject/TestData/generalstore.json";
 
 	public String dataPropertiesPath = "/src/main/java/appiumproject/resources/data.properties";
 
-	//E-COMMERCE APP
-	public File app = new File( projectdir +"/src/test/resources/apps/General-Store.apk");
+	public File app;
 
-	//API DEMOS APP
-	//public File app= new File(projectdir + "/src/test/resources/apps/ApiDemos-debug.apk");
+	public Properties prop;
 
-
-	public DesiredCapabilities cap = new DesiredCapabilities();
+	public DesiredCapabilities cap ;
 	
 	    public AppiumDriver driver; //This grandparent class so AppiumDriver is also parent driver
 
@@ -113,7 +112,7 @@ public abstract class AppiumCommonUtils {
 
 		try {
 			System.out.println("******************* AppiumCommonUtils: getDeviceCapability() ****************");
-
+            cap = new DesiredCapabilities();
 			deviceInfo = new DeviceInfoImpl(DeviceType.ANDROID);
 			deviceInfo.anyDeviceConnected();
 			device = deviceInfo.getFirstDevice();
@@ -154,6 +153,16 @@ public abstract class AppiumCommonUtils {
 
 		}
 		}
+	public Properties propertiesLoad() throws IOException {
+			prop = new Properties();
+		FileInputStream fis = new FileInputStream(projectdir + dataPropertiesPath);
+		prop.load(fis);
+		return prop;
+	}
+	public File setAPKName(String name){
+			app = new File( projectdir +"/src/test/resources/apps/"+name+".apk");
+			return app;
+	}
 }
 
 //127.0.0.1 is the  localhost normally resolves to the IPv4  127.0.0.1

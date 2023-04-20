@@ -1,8 +1,8 @@
 package appiumproject.testcases;
 
-import appiumproject.testUtils.BaseClass;
 import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;
+import appiumproject.testUtils.SuperBaseClass;
 import io.appium.java_client.android.Activity;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Test05_MulLevelInheritance extends BaseClass {
+public class Test05_MulLevelInheritance extends SuperBaseClass {
 
 	@BeforeMethod
 	public void GoToHome() {
