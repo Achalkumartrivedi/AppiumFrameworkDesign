@@ -21,6 +21,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,7 +41,7 @@ public abstract class AppiumCommonUtils {
 
 	public String dataPropertiesPath = "/src/main/java/appiumproject/resources/data.properties";
 
-	public File app;
+	public File file;
 
 	public Properties prop;
 
@@ -137,7 +138,7 @@ public abstract class AppiumCommonUtils {
 			cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,60);
 
 			cap.setCapability("automationName", "UiAutomator2");
-			cap.setCapability(MobileCapabilityType.APP, app.getPath());
+			cap.setCapability(MobileCapabilityType.APP, file.getPath());
 
 			//cap.setCapability("autoGrantPermissions", true);
 			//  cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
@@ -160,8 +161,15 @@ public abstract class AppiumCommonUtils {
 		return prop;
 	}
 	public File setAPKName(String name){
-			app = new File( projectdir +"/src/test/resources/apps/"+name+".apk");
-			return app;
+			file = new File( projectdir +"/src/test/resources/apps/"+name+".apk");
+			return file;
+	}
+	public String getScreenshotPath(String testcasename, AppiumDriver driver) throws IOException {
+		File source = driver.getScreenshotAs(OutputType.FILE);
+		String destinationFile = projectdir+"\\TestReports\\"+testcasename+".png";
+		FileUtils.copyFile(source, new File(destinationFile));
+		return destinationFile;
+			
 	}
 }
 
