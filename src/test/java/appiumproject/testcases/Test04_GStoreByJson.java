@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Test04_GStoreByJson extends SuperBaseClass {
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void GoToHome() {
 
 		Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore.SplashActivity");
@@ -24,7 +24,7 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
 
-	@Test(dataProvider = "getData")
+	@Test(dataProvider = "getData",groups = {"regression"})
 	public void GstoreByJsonTest04(HashMap<String, String> input) {
 
 		System.out.println("******************* Part 4:Data Driven Test by Json file: General Store App  ****************");

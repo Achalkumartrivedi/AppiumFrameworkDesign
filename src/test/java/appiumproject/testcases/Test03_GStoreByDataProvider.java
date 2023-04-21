@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class Test03_GStoreByDataProvider extends SuperBaseClass {
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void GoToHome() {
 
 		Activity activity = new Activity("com.androidsample.generalstore","com.androidsample.generalstore.SplashActivity");
@@ -28,45 +28,22 @@ public class Test03_GStoreByDataProvider extends SuperBaseClass {
 		System.out.println("******************* GStoreDataProviderTest03() is start  ****************");
 		   
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-		
-		try {
-			
-			FormPage frmPage = new FormPage(driver); //create object of formpage 
-			frmPage.countrySelection(country);  //country pass from argument
-			frmPage.setNameField(name); //name pass from argument
-			frmPage.setGender(gender); //gender pass from argument
-			
-			ProductCatalogue prdCatalogue = frmPage.letsShopButtonclick(); //Implement Page object file for Product Catalogue page with actions
 
-			System.out.println("*******************  GStoreDataProviderTest03() is finished ****************");
-			
-			
-		}catch (AssertionError a) {
-			// TODO: handle exception
-			System.out.println("Assertion error message ...."+a.getMessage());
-			a.printStackTrace();
-			System.out.println("*******************  GStoreDataProviderTest03() is not run ****************");
-		} 
-		catch (NotFoundException e) {
-			// TODO: handle exception
-			System.out.println("Not found error message ...."+e.getMessage());
-			e.printStackTrace();
-			System.out.println("*******************  GStoreDataProviderTest03() is not run ****************");
-		}
-		catch (Exception ex) {
-			// TODO: handle exception
-			System.out.println("Error message ...."+ex.getMessage());
-			ex.printStackTrace();
-			System.out.println("*******************  GStoreDataProviderTest03()is not run ****************");
-		}
-     
+		FormPage frmPage = new FormPage(driver); //create object of formpage
+		frmPage.countrySelection(country);  //country pass from argument
+		frmPage.setNameField(name); //name pass from argument
+		frmPage.setGender(gender); //gender pass from argument
+
+		ProductCatalogue prdCatalogue = frmPage.letsShopButtonclick(); //Implement Page object file for Product Catalogue page with actions
+
+		System.out.println("*******************  GStoreDataProviderTest03() is finished ****************");
+
 	}
 
 	@DataProvider
 	public Object[][] getData(){
 
-		return new Object[][] { {"Bahamas","Achal","Female"},{"Australia","Trivedi","Male"} };
+		return new Object[][] { {"Bahamas","Achal","Female"},{"Argentina","Trivedi","Male"} };
 	}
 
 }

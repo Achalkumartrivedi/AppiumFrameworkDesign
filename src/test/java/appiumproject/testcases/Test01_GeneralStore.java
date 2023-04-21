@@ -2,8 +2,10 @@ package appiumproject.testcases;
 
 import java.time.Duration;
 
+import io.appium.java_client.android.Activity;
 import org.openqa.selenium.NotFoundException;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import appiumproject.testUtils.SuperBaseClass;
@@ -12,8 +14,16 @@ import appiumproject.pageOjects.FormPage;
 import appiumproject.pageOjects.ProductCatalogue;
 
 public class Test01_GeneralStore extends SuperBaseClass {
+
+	@BeforeMethod(alwaysRun = true)
+	public void GoToHome() {
+
+		Activity activity = new Activity("com.androidsample.generalstore","com.androidsample.generalstore.SplashActivity");
+		driver.startActivity(activity);
+		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
+	}
 	
-	@Test
+	@Test(groups = {"regression"})
 	public void GenralStoreTest01() {
 		
 		System.out.println("******************* Part 1-2: General Store App Form submit by Page Factory Design Pattern ****************");

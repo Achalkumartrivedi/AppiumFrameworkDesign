@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class Test05_MulLevelInheritance extends SuperBaseClass {
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void GoToHome() {
     try {
 		Activity activity = new Activity("com.androidsample.generalstore","com.androidsample.generalstore.SplashActivity");
@@ -45,16 +45,8 @@ public class Test05_MulLevelInheritance extends SuperBaseClass {
 			ProductCatalogue prdCatalogue = frmPage.letsShopButtonclick(); //Implement Page object file for Product Catalogue page with actions
 
 			System.out.println("*******************  MultilevelTest05() is finished ****************");
-			
-			
-		}catch (AssertionError a) {
-			// TODO: handle exception
-			System.out.println("Assertion error message ...."+a.getMessage());
-			a.printStackTrace();
-			System.out.println("******************* MultilevelTest05() is not run ****************");
 		}
 		catch (Exception ex) {
-			// TODO: handle exception
 			System.out.println("Error message ...."+ex.getMessage());
 			ex.printStackTrace();
 			System.out.println("******************* MultilevelTest05() is not run ****************");

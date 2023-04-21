@@ -14,7 +14,7 @@ public class SuperBaseClass extends AppiumCommonUtils {
 	
 	public AndroidDriver driver ;
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void Setup() throws Exception {
 		
         System.out.println("*********** SuperBaseclass: BeforeTest is Start ******************");
@@ -46,7 +46,7 @@ public class SuperBaseClass extends AppiumCommonUtils {
 	}
 
 	
-	@AfterClass 
+	@AfterClass(alwaysRun = true)
 	public void teardown() {
 	
 		System.out.println("******* Teardown is start ********");

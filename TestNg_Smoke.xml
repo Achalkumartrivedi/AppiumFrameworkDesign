@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <groups>
+        <run>
+            <include name="smoke"/>
+        </run>
+    </groups>
     <listeners>
         <listener class-name="appiumproject.testUtils.TestListeners"/>
     </listeners>
@@ -13,7 +18,11 @@
     </test>
     <test verbose="2" preserve-order="true" name="Test02_MultipleTests">
         <classes>
-            <class name="appiumproject.testcases.Test02_MultipleTests"><methods><include name="VerifyNameValidation_Test01"/><include name="FormSubmit_Test02"/></methods>
+            <class name="appiumproject.testcases.Test02_MultipleTests">
+                <methods>
+                    <include name="VerifyNameValidation_Test01"/>
+                    <include name="FormSubmit_Test02"/>
+                </methods>
             </class>
         </classes>
     </test>
