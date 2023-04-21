@@ -29,37 +29,21 @@ public class Test02_MultipleTests extends SuperBaseClass {
 		System.out.println("******************* VerifyNameValidation_Test01() is start  ****************");
 		   
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-		
-		try {
-			
-			FormPage frmPage = new FormPage(driver); //create object of formpage 
-			frmPage.countrySelection("Australia");  //country select from dropdown
-			frmPage.setGender("Female"); //select Female gender
-			frmPage.letsShopButtonclick(); //Implement Page object file for Product Catalogue page with actions
+
+		FormPage frmPage = new FormPage(driver); //create object of formpage
+		frmPage.countrySelection("Australia");  //country select from dropdown
+		frmPage.setGender("Female"); //select Female gender
+		frmPage.letsShopButtonclick(); //Implement Page object file for Product Catalogue page with actions
 			
 			
-			 String toastMessage  = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.Toast[1]")).getAttribute("text");
-			Assert.assertEquals(toastMessage,"Please enter your name");
-			System.out.println("************** Assertion:Passed 'Please enter your name' toast is displayed *********************");
+		String toastMessage  = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.Toast[1]")).getAttribute("text");
+		Assert.assertEquals(toastMessage,"Please enter your name0000000");
+		System.out.println("************** Assertion:Passed 'Please enter your name' toast is displayed *********************");
 			
 	
 
-			System.out.println("*******************  VerifyNameValidation_Test01() is finished ****************");
-			
-			
-		}catch (AssertionError a) {
-			// TODO: handle exception
-			System.out.println("Assertion error message ...."+a.getMessage());
-			a.printStackTrace();
-			System.out.println("*******************  VerifyNameValidation_Test01() is not run: Assertion:Failed ****************");
-		} 
-		catch (Exception ex) {
-			// TODO: handle exception
-			System.out.println("Error message ...."+ex.getMessage());
-			ex.printStackTrace();
-			System.out.println("******************* VerifyNameValidation_Test01() is not run ****************");
-		}
+		System.out.println("*******************  VerifyNameValidation_Test01() is finished ****************");
+
      
 	}
 	

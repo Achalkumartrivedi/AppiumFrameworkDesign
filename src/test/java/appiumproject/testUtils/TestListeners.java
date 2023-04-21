@@ -1,14 +1,19 @@
 package appiumproject.testUtils;
 
+import appiumproject.utils.AppiumCommonUtils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import io.appium.java_client.AppiumDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestNGListener;
 import org.testng.ITestResult;
 
-public class TestListeners implements ITestListener {
+public class TestListeners extends AppiumCommonUtils implements ITestListener {
 
     ExtentReports extentReports = ExtentReportTestNG.getReporterObject();
     ExtentTest test;
@@ -16,7 +21,7 @@ public class TestListeners implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
-        test = extentReports.createTest(result.getMethod().getMethodName());
+        test = extentReports.createTest(result.getMethod().getMethodName()); //testcase name
     }
 
     @Override
@@ -28,7 +33,32 @@ public class TestListeners implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
+        //failing test entry in report
+        test.fail(MarkupHelper.createLabel(result.getName()+ " - Test failed due to below issue/error: ", ExtentColor.RED));
         test.fail(result.getThrowable());
+        try {
+       driver = (AppiumDriver) result.getTestClass().getRealClass().getField("driver")
+               .get(result.getInstance());
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getMessage();
+        }
+        try {
+            System.out.println("************** "+result.getMethod().getMethodName() + " -> Test failed! ,check screenshot and report ***************");
+
+            //method: take screen shot and add screenshot to the report
+            //Argument Explain:(testcasename on screenshot ,title name of screenshot that showing in report)
+
+            //Method 1: by Media Entity Builder
+            test.fail("Failed step: ", MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(result.getName(), driver),result.getName()).build());
+
+            //Method 2: (Rahul shetty) - by addScreenCaptureFromPath method
+
+           //test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(),driver),result.getMethod().getMethodName());
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Screen-capture has been taken but not attached to Extent report:- "+ e.getMessage());
+        }
     }
 
     @Override
@@ -58,3 +88,5 @@ public class TestListeners implements ITestListener {
 
     }
 }
+
+//Testcase Name -> result.getMethod().getMethodName()
