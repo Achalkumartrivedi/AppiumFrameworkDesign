@@ -24,7 +24,7 @@ public class Test04_GStoreByJson extends SuperBaseClass {
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
 
-	@Test(dataProvider = "getData",groups = {"regression"})
+	@Test(groups = {"Regression"},dataProvider = "getData")
 	public void GstoreByJsonTest04(HashMap<String, String> input) {
 
 		System.out.println("******************* Part 4:Data Driven Test by Json file: General Store App  ****************");

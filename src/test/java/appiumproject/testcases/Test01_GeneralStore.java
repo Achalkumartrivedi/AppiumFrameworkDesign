@@ -23,7 +23,7 @@ public class Test01_GeneralStore extends SuperBaseClass {
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
 	
-	@Test(groups = {"regression"})
+	@Test(groups = { "Regression" })
 	public void GenralStoreTest01() {
 		
 		System.out.println("******************* Part 1-2: General Store App Form submit by Page Factory Design Pattern ****************");

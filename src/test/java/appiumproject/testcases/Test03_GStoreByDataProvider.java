@@ -21,7 +21,7 @@ public class Test03_GStoreByDataProvider extends SuperBaseClass {
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
 	
-	@Test(dataProvider = "getData")
+	@Test(groups = {"Smoke"},dataProvider = "getData")
 	public void GStoreDataProviderTest03(String country,String name,String gender) {
 		
 		System.out.println("******************* Part 4:Data Driven Test by @DataProvider: General Store App  ****************");

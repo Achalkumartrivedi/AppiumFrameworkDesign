@@ -22,7 +22,7 @@ public class Test02_MultipleTests extends SuperBaseClass {
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
 
-	@Test(priority = 0, groups = {"smoke"})
+	@Test(groups = { "Smoke" },priority = 0 )
 	public void VerifyNameValidation_Test01() {
 
 		System.out.println("******************* First Test is start ****************");
@@ -47,7 +47,7 @@ public class Test02_MultipleTests extends SuperBaseClass {
 	}
 
 
-	@Test(priority = 1, groups = {"smoke"})
+	@Test(groups = { "Regression" }, priority = 1)
 	public void FormSubmit_Test02() {
 
 		System.out.println("******************* Second Test is start ****************");
