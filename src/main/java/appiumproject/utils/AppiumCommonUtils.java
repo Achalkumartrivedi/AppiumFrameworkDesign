@@ -102,7 +102,7 @@ public abstract class AppiumCommonUtils {
 
 
 		} catch (Exception e) {
-			System.out.println("********************** Appium server not start -Error is:- " + e.getMessage());
+			System.out.println("********************** Appium server not start-> error message is:- " + e.getMessage());
 			e.printStackTrace();
 		}
 		//service is for used to pass driver with 'cap' in baseclass
@@ -148,7 +148,7 @@ public abstract class AppiumCommonUtils {
 		}
 	    catch (SecurityException | IOException | DeviceNotFoundException e) {
 
-		System.out.println("getcapability error message is:- "+e.getMessage());
+		System.out.println("Capability not found-> error message is:- "+e.getMessage());
 		e.printStackTrace();
 		System.out.println("******************  Device is not connected or please check your device ****************");
 

@@ -20,7 +20,10 @@ public class SuperBaseClass extends AppiumCommonUtils {
         System.out.println("*********** SuperBaseclass: Beforeclass is Start ******************");
 
 		prop = propertiesLoad();
-		String ipaddress = prop.getProperty("ipaddress");
+		//ternary operator for runtime pass parameter using maven command(e.g. mvn test -PSmoke -Dipaddress=444.2.2.2)
+		String ipaddress = System.getProperty("ipaddress") != null ? System.getProperty("ipaddress") : prop.getProperty("ipaddress");
+
+		//String ipaddress = prop.getProperty("ipaddress");
 		String Basepath = prop.getProperty("basepath");
 		String port = prop.getProperty("port");
 		String debugloglevel = prop.getProperty("debugloglevel");
