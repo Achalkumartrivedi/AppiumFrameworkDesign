@@ -43,7 +43,7 @@ public class Test03_GStoreByDataProvider extends SuperBaseClass {
 	@DataProvider
 	public Object[][] getData(){
 
-		return new Object[][] { {"Bahamas","Achal","Female"},{"Argentina","Trivedi","Male"} };
+		return new Object[][] { {"Bahamas","Achal","Female"},{"Algeria","Trivedi","Male"} };
 	}
 
 }

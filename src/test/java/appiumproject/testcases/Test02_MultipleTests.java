@@ -13,16 +13,17 @@ import io.appium.java_client.android.Activity;
 
 public class Test02_MultipleTests extends SuperBaseClass {
 
-	//******************* Part- 3 :Test Strategy and TestNG.xml ****************
+	//******************* Part- 3 :Test Strategy and TestNGSmoke.xml ****************
 	@BeforeMethod(alwaysRun = true)
-	public void GoToHome() {
+	public void GoToHome() throws InterruptedException {
 
 		Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore.SplashActivity");
 		driver.startActivity(activity);
+		Thread.sleep(3000);
 		System.out.println("******************* BeforeMethod Run: SplashActivity ****************");
 	}
 
-	@Test(groups = { "Smoke" },priority = 0 )
+	@Test(priority = 0 ,groups = { "Regression" })
 	public void VerifyNameValidation_Test01() {
 
 		System.out.println("******************* First Test is start ****************");
@@ -47,13 +48,11 @@ public class Test02_MultipleTests extends SuperBaseClass {
 	}
 
 
-	@Test(groups = { "Regression" }, priority = 1)
+	@Test( priority = 1,groups = { "Smoke" })
 	public void FormSubmit_Test02() {
 
 		System.out.println("******************* Second Test is start ****************");
 		System.out.println("******************* FormSubmit_Test02() is start  ****************");
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		FormPage frmPage = new FormPage(driver); //create object of formpage
 		frmPage.countrySelection("Australia");  //country select from dropdown

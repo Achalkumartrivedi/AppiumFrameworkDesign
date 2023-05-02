@@ -25,7 +25,7 @@ public class Test05_MulLevelInheritance extends SuperBaseClass {
 	}
 	}
 	
-	@Test(dataProvider = "getData")
+	@Test(dataProvider = "getData",groups = { "Smoke" })
 	public void MultilevelTest05(String country,String name,String gender) {
 		
 		System.out.println("******************* Multilevel Inheritance Demo (Test05class -> BaseClass -> AppiumUtils) ****************");
@@ -57,7 +57,7 @@ public class Test05_MulLevelInheritance extends SuperBaseClass {
 	@DataProvider
 	public Object[][] getData(){
 
-		return new Object[][] { {"Bahamas","Achal","Female"},{"Australia","Trivedi","Male"} };
+		return new Object[][] { {"Angola","Achal","Female"}};
 	}
 
 }

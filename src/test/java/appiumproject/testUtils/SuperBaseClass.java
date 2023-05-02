@@ -17,7 +17,7 @@ public class SuperBaseClass extends AppiumCommonUtils {
 	@BeforeClass(alwaysRun = true)
 	public void Setup() throws Exception {
 		
-        System.out.println("*********** SuperBaseclass: BeforeTest is Start ******************");
+        System.out.println("*********** SuperBaseclass: Beforeclass is Start ******************");
 
 		prop = propertiesLoad();
 		String ipaddress = prop.getProperty("ipaddress");
